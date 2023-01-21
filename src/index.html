@@ -5,28 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Varela+Round&display=swap" rel="stylesheet">
+
+<script src="https://kit.fontawesome.com/713945395b.js" crossorigin="anonymous"></script>
     <title>TO DO APP</title>
 </head>
 <body>
     <nav class="sidebar-menu">
       <div class="all-tasks-menu">
         <a href="#" class="menu-link">
+          <i class="fa-solid fa-list"></i>
           <p class="link-description">All tasks</p>
         </a>
         <a href="#" class="menu-link">
+          <i class="fa-solid fa-star"></i>
           <p class="link-description">Important</p>
         </a>
         <a href="#" class="menu-link">
+          <i class="fa-solid fa-check"></i>
           <p class="link-description">Completed</p>
         </a>
         <a href="#" class="menu-link">
+          <i class="fa-solid fa-calendar-week"></i>
           <p class="link-description">Week</p>
         </a>
       </div>
-      <div class="all-projects-menu"></div>
+      <div class="all-projects-container">
+        <h3 class="all-projects-menu">
+          <i class="fa-solid fa-folder-tree"></i>
+          Projects
+        </h3>
+        
+      </div>
     </nav>
     <main class="main-app">
+      
       <h1 class="app-title"> TO DO APP</h1>
       <div class="task-container"></div>
     </main>
