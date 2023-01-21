@@ -1,3 +1,26 @@
-.hello {
-  color: red
+
+
+@media only screen and (min-width:768px) {
+  .sidebar-menu {
+    position: fixed;
+    overflow: auto;
+    height: 100%;
+    width: 300px;
+    padding: 40px 20px;
+    background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
+    transition: transform 250ms;
+    font-family: 'Varela Round', sans-serif;
+  }
+
+  .all-tasks-menu {
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .all-tasks-menu a {
+    list-style: none;
+    text-decoration: none;
+  }
 }
