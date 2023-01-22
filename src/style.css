@@ -1,0 +1,80 @@
+p,
+h1,
+h2,
+h3,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.task-container {
+  background-image: url('./img/depositphotos_49934977-stock-illustration-notebook-a4-size.jpg');
+  background-repeat: no-repeat;
+  height: 1000px;
+  background-size: 100%;
+}
+
+.main-app {
+  margin-left: 300px;
+}
+
+.app-title {
+  text-align: center;
+  font-size: 50px;
+  font-family: 'Fredoka One', cursive;
+  background: rgba(255, 192, 203, 0.148);
+  color: rgba(129, 123, 123, 0.704);
+  padding: 20px;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.465);
+}
+
+@media only screen and (min-width: 768px) {
+  .sidebar-menu {
+    position: fixed;
+    overflow: auto;
+    height: 100%;
+    width: 300px;
+    padding: 40px 20px;
+    background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
+    transition: transform 250ms;
+    font-family: 'Varela Round', sans-serif;
+    font-size: 18px;
+  }
+
+  .all-tasks-menu {
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(240, 248, 255, 0.366);
+    border-radius: 20px;
+    gap: 20px;
+  }
+
+  .all-tasks-menu a {
+    list-style: none;
+    text-decoration: none;
+  }
+
+  .menu-link {
+    display: flex;
+    flex-direction: row;
+    color: rgb(20, 91, 70);
+    gap: 10px;
+    background-color: rgb(243, 243, 243);
+    border-radius: 2px;
+    padding: 5px;
+  }
+
+  .all-projects-menu {
+    margin-top: 120px;
+    border-bottom: 1px solid;
+    text-align: center;
+  }
+
+  .all-projects-container {
+    background-color: whitesmoke;
+    border-radius: 10px;
+  }
+}
