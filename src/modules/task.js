@@ -1,7 +1,7 @@
-//-- Class constructor of the task object
+// -- Class constructor of the task object
 
 export default class Task {
-  constructor(title, description, dueDate, index, completed) {
+  constructor(title, description, dueDate, index) {
     this.title = title;
     this.description = description;
     this.dueDate = dueDate;

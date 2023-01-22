@@ -1,9 +1,7 @@
-
 const listContainer = document.querySelector('.all-tasks');
 
-export  function displayTask(task) {
-
-   const html =`
+export function displayTask(task) {
+  const html = `
   <div class="task-container">
    <div class="checkbox-task">
     <input id="${task.index}" class="checkbox" type="checkbox">
@@ -18,8 +16,8 @@ export  function displayTask(task) {
 
 export function displayTasks() {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
-  tasks.forEach(task => {
-    const html =`
+  tasks.forEach((task) => {
+    const html = `
     <div class="task-container">
      <div class="checkbox-task">
       <input id="${task.index}" class="checkbox" type="checkbox">

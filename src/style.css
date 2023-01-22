@@ -7,51 +7,106 @@ body {
   padding: 0;
 }
 
-.list-container {
-  background-image: url('./img/depositphotos_49934977-stock-illustration-notebook-a4-size.jpg');
-  background-repeat: no-repeat;
-  height: 1000px;
-  background-size: 100%;
-  padding: 120px;
+/* <!-- Sidebar menu STARTS --> */
+.sidebar-menu {
+  position: fixed;
+  height: 100%;
+  width: 300px;
+  padding: 40px 20px;
+  background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
+  transition: transform 250ms;
+  font-family: 'Varela Round', sans-serif;
+  font-size: 18px;
+  flex-direction: column;
 }
 
-.main-app {
-  margin-left: 300px;
+.close-menu-btn {
+  background: none;
+  border: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  font-size: 20px;
 }
 
+.all-tasks-menu {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: rgba(240, 248, 255, 0.366);
+  border-radius: 20px;
+  gap: 20px;
+}
+
+.all-tasks-menu a {
+  list-style: none;
+  text-decoration: none;
+}
+
+.menu-link {
+  display: flex;
+  flex-direction: row;
+  color: rgb(20, 91, 70);
+  gap: 10px;
+  background-color: rgb(243, 243, 243);
+  border-radius: 2px;
+  padding: 5px;
+}
+
+.all-projects-menu {
+  margin-top: 120px;
+  border-bottom: 1px solid;
+  text-align: center;
+}
+
+.all-projects-container {
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.hamburger-menu {
+  background: none;
+  border: none;
+  color: black;
+  position: fixed;
+  top: 4px;
+  left: 4px;
+}
+
+/* <!-- Sidebar menu ENDS --> */
+
+/* <!-- Main app  --> */
 .app-title {
   text-align: center;
   font-size: 50px;
   font-family: 'Fredoka One', cursive;
-  background: rgba(241, 150, 101, 0.31);
+  background: radial-gradient(circle at 10% 20%, rgb(253, 239, 132) 0%, rgb(247, 198, 169) 54.2%, rgb(21, 186, 196) 100.3%);
   color: whitesmoke;
   padding: 20px;
   border-bottom: 1px solid rgba(128, 128, 128, 0.465);
 }
 
 .title-section {
-  font-size: 20px;
+  font-size: 17px;
   text-align: center;
   font-family: 'Varela Round', sans-serif;
   padding: 30px;
   color: rgb(69, 68, 68);
   display: flex;
-  gap: 10px;
-  justify-content: center;
+  gap: 30px;
+  justify-content: end;
   align-items: center;
 }
 
 .open-modal-btn {
-  background-color: rgb(248, 115, 137);
-  height: 60px;
-  width: 60px;
-  border-radius: 30px;
+  background-color: rgb(80, 186, 170);
+  height: 40px;
+  width: 40px;
+  border-radius: 20px;
   border: none;
   font-size: 35px;
   color: white;
-  position: absolute;
-  right: 120px;
-  top: 230px;
   cursor: pointer;
 }
 
@@ -75,6 +130,7 @@ body {
   gap: 10px;
 }
 
+/* <!-- Modal add starts --> */
 .modal {
   position: fixed;
   z-index: 1;
@@ -99,7 +155,7 @@ body {
 
 .completed {
   text-decoration: line-through;
-  color:rgb(33, 123, 93)
+  color: rgb(33, 123, 93);
 }
 
 .overlay {
@@ -156,7 +212,7 @@ body {
 }
 
 .fa-trash-can {
-  color:black
+  color: black;
 }
 
 .edit-task-btn {
@@ -201,16 +257,30 @@ textarea {
   font-size: 20px;
   color: white;
 }
+
 .task-text {
   font-size: 17px;
 }
+
+/* <!-- Modal add ENDS --> */
+
 @media only screen and (min-width: 768px) {
+  /* <!-- Sidebar menu STARTS --> */
+  .close-menu-btn {
+    display: none;
+  }
+
+  .hamburger-menu {
+    display: none;
+  }
+
   .sidebar-menu {
+    display: block;
     position: fixed;
     overflow: auto;
     height: 100%;
-    width: 300px;
-    padding: 40px 20px;
+    width: 200px;
+    padding: 100px 20px;
     background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
     transition: transform 250ms;
     font-family: 'Varela Round', sans-serif;
@@ -218,7 +288,6 @@ textarea {
   }
 
   .all-tasks-menu {
-    border: 1px solid black;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -252,5 +321,83 @@ textarea {
   .all-projects-container {
     background-color: whitesmoke;
     border-radius: 10px;
+  }
+
+  /* <!-- Sidebar menu ENDS --> */
+
+  /* <!-- Main app--> */
+  .title-section {
+    padding-top: 80px;
+    justify-content: center;
+    font-size: 15px;
+  }
+
+  .main-app {
+    margin-left: 200px;
+  }
+
+  .list-container {
+    background-image: url('./img/depositphotos_49934977-stock-illustration-notebook-a4-size.jpg');
+    background-repeat: no-repeat;
+    background-size: 100%;
+    min-height: 700px;
+  }
+
+  .all-tasks {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+
+  .open-modal-btn {
+    background-color: rgb(80, 186, 170);
+    height: 40px;
+    width: 40px;
+    border-radius: 20px;
+    border: none;
+    font-size: 35px;
+    color: white;
+    cursor: pointer;
+  }
+
+  .task-container {
+    padding: 5px;
+  }
+
+  .task-text {
+    font-size: 14px;
+  }
+
+  @media only screen and (min-width: 1024px) {
+    /* <!-- Sidebar menu --> */
+    .sidebar-menu {
+      width: 300px;
+    }
+
+    .main-app {
+      margin-left: 300px;
+    }
+
+    .list-container {
+      padding: 102px;
+    }
+
+    .open-modal-btn {
+      background-color: rgb(80, 186, 170);
+      height: 40px;
+      width: 40px;
+      border-radius: 20px;
+      border: none;
+      font-size: 35px;
+      color: white;
+      cursor: pointer;
+    }
+
+    .task-container {
+      padding: 5px;
+    }
+
+    .task-text {
+      font-size: 14px;
+    }
   }
 }
