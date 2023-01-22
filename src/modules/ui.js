@@ -1,0 +1,2 @@
+import Storage from "./localStorage";
+

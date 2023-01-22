@@ -30,19 +30,24 @@ body {
 }
 
 .title-section {
-  font-size: 30px;
+  font-size: 20px;
   text-align: center;
   font-family: 'Varela Round', sans-serif;
   padding: 30px;
+  color: rgb(69, 68, 68);
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
 }
 
-.add-task-btn {
+.open-modal-btn {
   background-color: rgb(248, 115, 137);
-  height: 80px;
-  width: 80px;
-  border-radius: 40px;
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
   border: none;
-  font-size: 60px;
+  font-size: 35px;
   color: white;
   position: absolute;
   right: 120px;
@@ -68,6 +73,111 @@ body {
   justify-content: center;
   align-items: center;
   gap: 10px;
+}
+
+.modal-add {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 550px;
+  border-radius: 10px;
+  background: white;
+  font-family: 'Varela Round', sans-serif;
+  color: white;
+  border: 2px solid #d57d7d;
+  text-align: center;
+  font-size: 20px;
+  user-select: none;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 200ms ease-in-out;
+}
+
+.modal-add.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  opacity: 0.6;
+}
+
+.overlay.active {
+  display: block;
+}
+
+.title-modal {
+  background-color: #d57d7d;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 20px;
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 25px;
+  position: fixed;
+  right: 4px;
+  top: 4px;
+}
+
+.form-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: grey;
+}
+
+.add-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+
+
+textarea {
+  width: 500px;
+  margin-bottom: 10px;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  font-size: 14px;
+  padding-left: 10px;
+  height: 100px;
+  color: rgba(128, 128, 128, 0.608);
+}
+
+.input {
+  width: 500px;
+  margin-bottom: 10px;
+  border: 0.5px solid grey;
+  border-radius: 5px;
+  font-size: 14px;
+  padding-left: 10px;
+  height: 40px;
+  font-family: 'Varela Round', sans-serif;
+  color: rgba(128, 128, 128, 0.638);
+}
+
+.add-task-btn {
+  background-color: #d57d7d;
+  border-radius: 10px;
+  padding: 10px 30px 10px 30px;
+  margin: 20px;
+  border: none;
+  font-size: 20px;
+  color: white;
 }
 
 @media only screen and (min-width: 768px) {

@@ -42,9 +42,13 @@
       
       <h1 class="app-title"> TO DO APP</h1>
       <div class="list-container">
-        <h2 class="title-section">All tasks</h2>
-        <button class="add-task-btn">+</button>
-
+        
+        <div class="title-section">
+          <i class="fa-solid fa-list"></i>
+          <h2>ALL TASKS</h2>
+          </div>
+        <button class="open-modal-btn">+</button>
+      <div class="all-tasks">
         <div class="task-container">
           <div class="checkbox-task">
             <input class="checkbox" type="checkbox">
@@ -55,7 +59,6 @@
           <i class="fa-regular fa-trash-can"></i>
           </div>
         </div>
-
         <div class="task-container">
           <div class="checkbox-task">
             <input class="checkbox" type="checkbox">
@@ -69,6 +72,53 @@
           
         </div>
       </div>
+      </div>
     </main>
+    <div class="modal-add">
+      <div class="title-modal">
+        <h3>Add new task</h3>
+        <button class="close-modal">x</button>
+      </div>
+      <div class="form-container">
+        <form class="form">
+          <div class="add-container title">
+            <label 
+              class="add-title-label">Title
+             </label>
+            <input 
+             class="add-title input"
+             type="text"
+             required
+            placeholder="Add title">
+          </div>
+          
+          <div class="add-container description">
+            <label 
+              class="add-desc-label">Description
+            </label>
+            <textarea 
+              class="add-desc"
+              type="text"
+              required
+              placeholder="Add Description...">
+              </textarea>
+              </div>
+          <div class="add-container date">
+             <label 
+              class="add-date-label">
+              Due date
+             </label>
+             <input 
+             class="add-date input"
+             type="date">
+
+            </div>
+          <button class="add-task-btn">Add</button>
+        </form>
+      </div>
+    </div>
+    <div class="overlay"></div>
+   
+  </div>
 </body>
 </html>
