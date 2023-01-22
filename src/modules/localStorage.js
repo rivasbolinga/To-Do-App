@@ -27,5 +27,20 @@ export default class Storage {
   }
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
+static updateStatus(id) {
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  for (let i = 0; i < tasks.length; i += 1) {
+    if (tasks[i].index.toString() === id.toString()) {
+      if (tasks[i].completed === false) {
+        tasks[i].completed = true;
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      } else {
+        tasks[i].completed = false;
+      }
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+  }
+}
 }
 

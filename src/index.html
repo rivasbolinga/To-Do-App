@@ -74,7 +74,7 @@
       </div>
       </div>
     </main>
-    <div class="modal-add">
+    <div class="modal modal-add">
       <div class="title-modal">
         <h3>Add new task</h3>
         <button class="close-modal">x</button>
@@ -114,6 +114,49 @@
 
             </div>
           <button class="add-task-btn">Add</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal edit-task">
+      <div class="title-modal">
+        <h3>Edit task</h3>
+        <button class="close-modal">x</button>
+      </div>
+      <div class="form-container">
+        <form class="form">
+          <div class="add-container title">
+            <label 
+              class="add-title-label">Title
+             </label>
+            <input 
+             class="add-title input"
+             type="text"
+             required
+            placeholder="Add title">
+          </div>
+          
+          <div class="add-container description">
+            <label 
+              class="add-desc-label">Description
+            </label>
+            <textarea 
+              class="add-desc"
+              type="text"
+              required
+              placeholder="Add Description...">
+              </textarea>
+              </div>
+          <div class="add-container date">
+             <label 
+              class="add-date-label">
+              Due date
+             </label>
+             <input 
+             class="add-date input"
+             type="date">
+
+            </div>
+          <button class="edit-task-btn">Edit</button>
         </form>
       </div>
     </div>

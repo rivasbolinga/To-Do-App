@@ -56,12 +56,12 @@ body {
 }
 
 .task-container {
-  border-bottom: 0.4px solid rgb(179, 179, 179);
+  border-bottom: 0.4px solid rgba(179, 179, 179, 0.442);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   font-size: 20px;
-  padding: 16px;
+  padding: 10px;
   font-family: 'Varela Round', sans-serif;
   color: rgb(95, 94, 94);
   transition: 0.3s;
@@ -75,7 +75,7 @@ body {
   gap: 10px;
 }
 
-.modal-add {
+.modal {
   position: fixed;
   z-index: 1;
   top: 50%;
@@ -93,8 +93,13 @@ body {
   transition: 200ms ease-in-out;
 }
 
-.modal-add.active {
+.modal.active {
   transform: translate(-50%, -50%) scale(1);
+}
+
+.completed {
+  text-decoration: line-through;
+  color:rgb(33, 123, 93)
 }
 
 .overlay {
@@ -145,7 +150,24 @@ body {
   align-items: flex-start;
 }
 
+.all-icons {
+  color: rgb(57, 207, 115);
+  cursor: pointer;
+}
 
+.fa-trash-can {
+  color:black
+}
+
+.edit-task-btn {
+  background-color: #d57d7d;
+  border-radius: 10px;
+  padding: 10px 30px 10px 30px;
+  margin: 20px;
+  border: none;
+  font-size: 20px;
+  color: white;
+}
 
 textarea {
   width: 500px;
@@ -179,7 +201,9 @@ textarea {
   font-size: 20px;
   color: white;
 }
-
+.task-text {
+  font-size: 17px;
+}
 @media only screen and (min-width: 768px) {
   .sidebar-menu {
     position: fixed;
