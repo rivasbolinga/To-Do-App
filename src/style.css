@@ -7,11 +7,12 @@ body {
   padding: 0;
 }
 
-.task-container {
+.list-container {
   background-image: url('./img/depositphotos_49934977-stock-illustration-notebook-a4-size.jpg');
   background-repeat: no-repeat;
   height: 1000px;
   background-size: 100%;
+  padding: 120px;
 }
 
 .main-app {
@@ -22,10 +23,51 @@ body {
   text-align: center;
   font-size: 50px;
   font-family: 'Fredoka One', cursive;
-  background: rgba(255, 192, 203, 0.148);
-  color: rgba(129, 123, 123, 0.704);
+  background: rgba(241, 150, 101, 0.31);
+  color: whitesmoke;
   padding: 20px;
   border-bottom: 1px solid rgba(128, 128, 128, 0.465);
+}
+
+.title-section {
+  font-size: 30px;
+  text-align: center;
+  font-family: 'Varela Round', sans-serif;
+  padding: 30px;
+}
+
+.add-task-btn {
+  background-color: rgb(248, 115, 137);
+  height: 80px;
+  width: 80px;
+  border-radius: 40px;
+  border: none;
+  font-size: 60px;
+  color: white;
+  position: absolute;
+  right: 120px;
+  top: 230px;
+  cursor: pointer;
+}
+
+.task-container {
+  border-bottom: 0.4px solid rgb(179, 179, 179);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 20px;
+  padding: 16px;
+  font-family: 'Varela Round', sans-serif;
+  color: rgb(95, 94, 94);
+  transition: 0.3s;
+}
+
+.checkbox-task {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 @media only screen and (min-width: 768px) {
