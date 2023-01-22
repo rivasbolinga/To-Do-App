@@ -12,6 +12,8 @@ const addBtn = document.querySelector('.add-task-btn');
 const titleInput = document.querySelector('.add-title');
 const descriptionInput = document.querySelector('.add-desc');
 const dateInput = document.querySelector('.add-date');
+const removeBtn = document.querySelector('.fa-trash-can');
+const listContainer = document.querySelector('.all-tasks')
 //---- EVENT LISTENERES ---
 
 function closeModal () {
@@ -35,17 +37,46 @@ addBtn.addEventListener('click',(e) => {
   const newTitle = titleInput.value;
   const newDescription = descriptionInput.value;
   const newDate = dateInput.value;
-  let newId;
+  let index;
   const len = tasks.length;
   if (len === 0 || len === null) {
-    newId = 0;
+    index = 0;
   } else {
-    newId = tasks[len - 1].id + 1;
+    index = tasks[len - 1].index + 1;
   }
   if (newTitle) {
-    const newTask = new Task(newTitle, newDescription, newDate, newDescription, newId); //
+    const newTask = new Task(newTitle, newDescription, newDate,Number(index),false); //
     Storage.addTask(newTask);
     displayTask(newTask)
     closeModal();
   }
 });
+// -- Function to remove task when click trash icon --
+
+const clickHandle = function (e) {
+  if (e.target.classList.contains('fa-pen-to-square')) {
+    // -- Modify task desciption --
+    
+  } else if (e.target.classList.contains('fa-trash-can')) {
+    // -- Delete task when press trash can --
+    const { id } = e.target;
+    Storage.removeTask(id);
+    e.target.parentElement.parentElement.remove();
+   }
+   //else if (e.target.classList.contains('checkbox')) {
+  //   // -- Check completed --
+  //   const { id } = e.target;
+  //   const checkbox = e.target;
+  //   const sibling = checkbox.closest('.task-wrapper').querySelector('.task-text');
+  //   if (checkbox.checked) {
+  //     sibling.classList.add('completed');
+  //     updateStatus(id);
+  //   } else {
+  //     sibling.classList.remove('completed');
+  //     updateStatus(id);
+  //   }
+  // }
+};
+
+// --Event to handle UI in task --
+listContainer.addEventListener('click', clickHandle);

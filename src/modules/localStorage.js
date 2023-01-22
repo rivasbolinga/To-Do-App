@@ -17,5 +17,15 @@ export default class Storage {
     tasks.push(task);
     localStorage.setItem('tasks', JSON.stringify(tasks));
   }
+
+  static removeTask(id) {
+    let tasks = JSON.parse(localStorage.getItem('tasks'));
+    tasks = tasks.filter((e) => e.index.toString() !== id.toString());
+    tasks.sort((a, b) => a.index - b.index);
+    for (let i = 0; i < tasks.length; i += 1) {
+    tasks[i].index = i;
+  }
+  localStorage.setItem('tasks', JSON.stringify(tasks));
+}
 }
 
