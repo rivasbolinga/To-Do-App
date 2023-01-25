@@ -2,14 +2,14 @@ const listContainer = document.querySelector('.all-tasks');
 
 export function displayTask(task) {
   const html = `
-  <div class="task-container">
+  <div class="task-container" data-index="${task.index}"
    <div class="checkbox-task">
     <input id="${task.index}" class="checkbox" type="checkbox">
     <p class="task-text">${task.title}</p>
    </div>
   <div class="all-icons">
     <i id="${task.index}" class="fa-regular fa-pen-to-square"></i>
-  <i id="${task.index}" data-index="${task.index}" class="fa-regular fa-trash-can"></i>
+  <i id="${task.index}"  class="fa-regular fa-trash-can"></i>
   </div>`;
   listContainer.innerHTML += html;
 }
@@ -21,11 +21,11 @@ export function displayTasks() {
     <div class="task-container">
      <div class="checkbox-task">
       <input id="${task.index}" class="checkbox" type="checkbox">
-      <p class="task-text">${task.title}</p>
+      <p data-index="${task.index}" class="task-text">${task.title}</p>
      </div>
     <div class="all-icons">
       <i id="${task.index}" class="fa-regular fa-pen-to-square"></i>
-    <i id="${task.index}" data-index="${task.index}" class="fa-regular fa-trash-can"></i>
+    <i id="${task.index}" class="fa-regular fa-trash-can"></i>
     </div>`;
     listContainer.innerHTML += html;
   });
