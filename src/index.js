@@ -6,18 +6,17 @@ import {
   displayTask,
   displayTasks,
 } from './modules/crud.js';
+import { createElement } from 'parse5/lib/tree-adapters/default';
 
 const openModalBtn = document.querySelector('.open-modal-btn');
 const modalAdd = document.querySelector('.modal-add');
 const overlay = document.querySelector('.overlay');
-const closeModalBtn = document.querySelectorAll('.close-modal');
 const addBtn = document.querySelector('.add-task-btn');
 const titleInput = document.querySelector('.add-title');
 const descriptionInput = document.querySelector('.add-desc');
 const dateInput = document.querySelector('.add-date');
 const listContainer = document.querySelector('.all-tasks');
 const modalEdit = document.querySelector('.edit-task');
-const editBtn = document.querySelector('.edit-task-btn');
 const hambMenu = document.querySelector('.hamburger-menu');
 const sideBar = document.querySelector('.sidebar-menu');
 const closeMenu = document.querySelector('.close-menu-btn');
@@ -39,21 +38,7 @@ openModalBtn.addEventListener('click', () => {
   modalAdd.classList.add('active');
   overlay.classList.add('active');
 });
-// -- Function to close modal --
-function closeModal() {
-  modalEdit.classList.remove('active');
-  modalAdd.classList.remove('active');
-  overlay.classList.remove('active');
-  while (modalEdit.firstChild) {
-    modalEdit.removeChild(modalEdit.firstChild);
-  }
-  while (overlay.firstChild) {
-    overlay.removeChild(overlay.firstChild);
-  }
-  
 
-}
-closeModalBtn.forEach((btn) => btn.addEventListener('click', closeModal));
 
 // -- Function to add new task when click add button --
 addBtn.addEventListener('click', (e) => {
@@ -87,22 +72,9 @@ function editTask(id,editTitleInput) {
   const newDescription = document.querySelector('.add-desc').value;
   const newDate = document.querySelector('.add-date').value;
  
-  // // Update the task object
-  // taskToEdit.title = newTitle;
-  // taskToEdit.description = newDescription;
-  // taskToEdit.date = newDate;
-
-  // // Update the task in Local Storage
-  // localStorage.setItem('tasks', JSON.stringify(tasks));
-
-  // Find the task container in the DOM
   const taskContainer = document.querySelector(`[data-index='${id}']`);
   taskContainer.textContent = newTitle;
-  // Update the task text in the DOM
-  // taskContainer.querySelector('.task-text').innerHTML = `<div class='title-task'>${newTitle}</div>
-  // <div class='description-task'>${newDescription}</div>
-  // <div class='date-task'>${newDate}</div>`;
-
+  Storage.editTask(newTitle, id)
   // Close the modal
   closeModal();
 }
@@ -177,20 +149,68 @@ const editDescContainer = document.createElement('div');
   buttonEdit.textContent = 'Edit';
   buttonEdit.id = id;
   form.appendChild(buttonEdit);
-  closeModalBtn.addEventListener('click', (e) => {
-    e.preventDefault();
-    closeModal()
-
-  })
+  // closeModalBtn.addEventListener('click', (e) => {
+  //   e.preventDefault();
+  //   closeModal()
+  // })
   buttonEdit.addEventListener('click', (e) => {
     e.preventDefault();
     const {id} = e.target;
     editTask(id,editTitleInput);
   })
+};
+// -- Function to close modal --
+function closeModal() {
+  console.log('clicked');
+  const id = modalEdit.getAttribute('data-id');
+  console.log(id)
+  modalEdit.classList.remove('active');
+  modalAdd.classList.remove('active');
+  overlay.classList.remove('active');
+  while (modalEdit.firstChild) {
+    modalEdit.removeChild(modalEdit.firstChild);
+  }
+  while (overlay.firstChild) {
+    overlay.removeChild(overlay.firstChild);
+  }
 }
 
+function createInfoModal(id) {
+  const tasks = JSON.parse(localStorage.getItem('tasks'));
+  modalEdit.classList.add('active');
+  overlay.classList.add('active');
+  modalEdit.setAttribute('data-id', id);
+  const html = `
+  <div class='modal-info-container'>
+    <div class= "title-container-info">
+    <h3>Task details</h3>
+    <button class="close-modal">x</button>
+    </div>
+  <div class="task-details">
+    <div class="title-container">
+      <h4 class="info-title">Title</h4>
+      <p class="info">${tasks[id].title}</p>
+     </div
+   <div class="description-container">
+     <h4 class="info-title">Description</h4>
+     <p class="info">${tasks[id].description}</p>
+     <div class="date-info-container">
+     <h4 class="info-title">Date</h4>
+     <div class="info">${tasks[id].dueDate}</div>
+     </div>
+       </div>
+  
+    </div>
+  </div>`
+  modalEdit.insertAdjacentHTML('beforeend',html);
+    }
+    const closeModalBtn = document.querySelectorAll('.close-modal');
+    closeModalBtn.forEach((btn) => btn.addEventListener('click', closeModal));
+
+
+
 // -- Function to handle click functions inside task container--
-const clickHandle = function (e) {
+const clickHandle = (e) => {
   if (e.target.classList.contains('fa-pen-to-square')) {
     // -- Open modal to modify task desciption --
     const { id } = e.target;
@@ -212,6 +232,9 @@ const clickHandle = function (e) {
       sibling.classList.remove('completed');
       Storage.updateStatus(id);
     }
+  } else if (e.target.classList.contains('fa-magnifying-glass')) {
+    const { id } = e.target;
+    createInfoModal(id);
   }
 };
 

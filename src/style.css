@@ -207,13 +207,26 @@ body {
 }
 
 .all-icons {
-  color: rgb(57, 207, 115);
+  color: rgb(58, 59, 59);
   cursor: pointer;
+  font-size: 13px;
+  display: flex;
+  flex-direction: row;
+  gap: 7px;
 }
 
-.fa-trash-can {
-  color: black;
+.task-date {
+  color: rgba(62, 140, 189, 0.77);
 }
+
+.fa-pen-to-square {
+  color: rgb(24, 176, 138);
+}
+
+.fa-magnifying-glass {
+  color: rgb(189, 179, 112);
+}
+
 
 .edit-task-btn {
   background-color: #d57d7d;
@@ -263,7 +276,40 @@ textarea {
 }
 
 /* <!-- Modal add ENDS --> */
+/* <!-- Modal info starts --> */
+.modal-info-container {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  color: grey;
+  padding-bottom: 20px;
+}
 
+.task-details {
+  background-color: white;
+  border-radius: 4px;
+  border: 0.5px grey;
+  text-align: left;
+  padding-left: 10px;
+}
+
+.info-title {
+  font-size: 18px;
+  border-bottom: 0.5px solid rgb(168, 164, 164);
+  padding: 0;
+}
+
+.info {
+  font-size: 15px;
+  padding: 0;
+}
+
+.title-container-info {
+  padding: 15px;
+  text-align: center;
+  background: linear-gradient(109.6deg, rgb(151, 213, 255) 11.2%, rgb(255, 155, 185) 91.1%);
+  color:rgb(81, 81, 81)
+}
 @media only screen and (min-width: 768px) {
   /* <!-- Sidebar menu STARTS --> */
   .close-menu-btn {
