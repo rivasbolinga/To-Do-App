@@ -8,7 +8,7 @@ export function displayTask(task) {
       <p data-index="${task.index}" class="task-text">${task.title}</p>
      </div>
     <div class="all-icons">
-    <p class="tas-date">${task.dueDate}</p>
+    <p date-index="${task.index}" class="task-date">${task.dueDate}</p>
     <i id="${task.index}" class="fa-solid fa-magnifying-glass"></i>
       <i id="${task.index}" class="fa-regular fa-pen-to-square"></i>
     <i id="${task.index}" class="fa-regular fa-trash-can"></i>
@@ -26,7 +26,7 @@ export function displayTasks() {
       <p data-index="${task.index}" class="task-text">${task.title}</p>
      </div>
     <div class="all-icons">
-    <p class="task-date">${task.dueDate}</p>
+    <p date-index="${task.index}" class="task-date">${task.dueDate}</p>
     <i id="${task.index}" class="fa-solid fa-magnifying-glass"></i>
       <i id="${task.index}" class="fa-regular fa-pen-to-square"></i>
     <i id="${task.index}" class="fa-regular fa-trash-can"></i>

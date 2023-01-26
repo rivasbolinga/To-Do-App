@@ -6,7 +6,6 @@ import {
   displayTask,
   displayTasks,
 } from './modules/crud.js';
-import { createElement } from 'parse5/lib/tree-adapters/default';
 
 const openModalBtn = document.querySelector('.open-modal-btn');
 const modalAdd = document.querySelector('.modal-add');
@@ -38,8 +37,21 @@ openModalBtn.addEventListener('click', () => {
   modalAdd.classList.add('active');
   overlay.classList.add('active');
 });
-
-
+// -- Function to close modal --
+function closeModal() {
+  console.log('clicked');
+  const id = modalEdit.getAttribute('data-id');
+  console.log(id);
+  modalEdit.classList.remove('active');
+  modalAdd.classList.remove('active');
+  overlay.classList.remove('active');
+  while (modalEdit.firstChild) {
+    modalEdit.removeChild(modalEdit.firstChild);
+  }
+  while (overlay.firstChild) {
+    overlay.removeChild(overlay.firstChild);
+  }
+}
 // -- Function to add new task when click add button --
 addBtn.addEventListener('click', (e) => {
   e.preventDefault();
@@ -62,25 +74,21 @@ addBtn.addEventListener('click', (e) => {
   }
 });
 
-function editTask(id,editTitleInput) {
-  // Get the task from Local Storage
-  const tasks = JSON.parse(localStorage.getItem('tasks'));
-  let taskToEdit = tasks.find((task) => task.index === id);
-
+function editTask(id, editTitleInput, editDescInput, editDateInput) {
   // Get the updated task information from the modal input fields
   const newTitle = editTitleInput.value;
-  const newDescription = document.querySelector('.add-desc').value;
-  const newDate = document.querySelector('.add-date').value;
- 
+  const newDescription = editDescInput.value;
+  const newDate = editDateInput.value;
   const taskContainer = document.querySelector(`[data-index='${id}']`);
+  const dateContainer = document.querySelector(`[date-index='${id}']`);
   taskContainer.textContent = newTitle;
-  Storage.editTask(newTitle, id)
+  dateContainer.textContent = newDate;
+  Storage.editTask(newTitle, newDescription, newDate, id);
   // Close the modal
   closeModal();
 }
 
-
-//--Create a modal to edit task.
+// --Create a modal to edit task.
 function createEditModal(id) {
   modalEdit.classList.add('active');
   overlay.classList.add('active');
@@ -98,7 +106,7 @@ function createEditModal(id) {
   formContainer.classList.add('form-container');
   const form = document.createElement('form');
   form.classList.add('form');
-  //title
+  // title
   const editTitleContainer = document.createElement('div');
   editTitleContainer.classList.add('add-container');
   editTitleContainer.classList.add('title');
@@ -115,8 +123,8 @@ function createEditModal(id) {
   form.appendChild(editTitleContainer);
   editTitleContainer.appendChild(editTitlelabel);
   editTitleContainer.appendChild(editTitleInput);
-// description
-const editDescContainer = document.createElement('div');
+  // description
+  const editDescContainer = document.createElement('div');
   editDescContainer.classList.add('add-container');
   editDescContainer.classList.add('description');
   const editDesclabel = document.createElement('label');
@@ -149,42 +157,26 @@ const editDescContainer = document.createElement('div');
   buttonEdit.textContent = 'Edit';
   buttonEdit.id = id;
   form.appendChild(buttonEdit);
-  // closeModalBtn.addEventListener('click', (e) => {
-  //   e.preventDefault();
-  //   closeModal()
-  // })
+  closeModalBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    closeModal();
+  });
   buttonEdit.addEventListener('click', (e) => {
     e.preventDefault();
-    const {id} = e.target;
-    editTask(id,editTitleInput);
-  })
-};
-// -- Function to close modal --
-function closeModal() {
-  console.log('clicked');
-  const id = modalEdit.getAttribute('data-id');
-  console.log(id)
-  modalEdit.classList.remove('active');
-  modalAdd.classList.remove('active');
-  overlay.classList.remove('active');
-  while (modalEdit.firstChild) {
-    modalEdit.removeChild(modalEdit.firstChild);
-  }
-  while (overlay.firstChild) {
-    overlay.removeChild(overlay.firstChild);
-  }
+    const { id } = e.target;
+    editTask(id, editTitleInput, editDescInput, editDateInput);
+  });
 }
 
 function createInfoModal(id) {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   modalEdit.classList.add('active');
   overlay.classList.add('active');
-  modalEdit.setAttribute('data-id', id);
   const html = `
   <div class='modal-info-container'>
+  <button class="close-modal">x</button>
     <div class= "title-container-info">
     <h3>Task details</h3>
-    <button class="close-modal">x</button>
     </div>
   <div class="task-details">
     <div class="title-container">
@@ -199,15 +191,13 @@ function createInfoModal(id) {
      <div class="info">${tasks[id].dueDate}</div>
      </div>
        </div>
-  
     </div>
-  </div>`
-  modalEdit.insertAdjacentHTML('beforeend',html);
-    }
-    const closeModalBtn = document.querySelectorAll('.close-modal');
-    closeModalBtn.forEach((btn) => btn.addEventListener('click', closeModal));
+  </div>`;
+  modalEdit.insertAdjacentHTML('beforeend', html);
 
-
+  const closeModalBtn = modalEdit.querySelector('.close-modal');
+  closeModalBtn.addEventListener('click', closeModal);
+}
 
 // -- Function to handle click functions inside task container--
 const clickHandle = (e) => {
