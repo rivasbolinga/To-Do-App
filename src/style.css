@@ -119,7 +119,6 @@ body {
   flex-direction: row;
   justify-content: space-between;
   font-size: 20px;
-  padding: 10px;
   font-family: 'Varela Round', sans-serif;
   color: rgb(95, 94, 94);
   transition: 0.3s;
@@ -415,8 +414,6 @@ textarea {
     color: white;
     cursor: pointer;
   }
-
-
 
   .task-text {
     font-size: 14px;
