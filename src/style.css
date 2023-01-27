@@ -11,26 +11,29 @@ body {
 .sidebar-menu {
   position: fixed;
   height: 100%;
-  width: 300px;
+  width: 100%;
   padding: 40px 20px;
   background: radial-gradient(circle at 7.5% 24%, rgb(237, 161, 193) 0%, rgb(250, 178, 172) 25.5%, rgb(190, 228, 210) 62.3%, rgb(215, 248, 247) 93.8%);
   transition: transform 250ms;
   font-family: 'Varela Round', sans-serif;
   font-size: 18px;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .close-menu-btn {
   background: none;
   border: none;
   position: fixed;
-  left: 0;
-  top: 0;
-  font-size: 20px;
+  left: 1px;
+  top: 2px;
+  font-size: 25px;
 }
 
 .all-tasks-menu {
   padding: 20px;
+  width: 280px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,8 +82,8 @@ body {
 /* <!-- Main app  --> */
 .app-title {
   text-align: center;
-  font-size: 50px;
-  font-family: 'Fredoka One', cursive;
+  font-size: 40px;
+  font-family: 'Raleway', sans-serif;
   background: radial-gradient(circle at 10% 20%, rgb(253, 239, 132) 0%, rgb(247, 198, 169) 54.2%, rgb(21, 186, 196) 100.3%);
   color: whitesmoke;
   padding: 20px;
@@ -136,7 +139,7 @@ body {
   z-index: 1;
   top: 50%;
   left: 50%;
-  width: 550px;
+  width: 95%;
   border-radius: 10px;
   background: white;
   font-family: 'Varela Round', sans-serif;
@@ -174,7 +177,8 @@ body {
 }
 
 .title-modal {
-  background-color: #d57d7d;
+  background: linear-gradient(109.6deg, rgb(151, 213, 255) 11.2%, rgb(255, 155, 185) 91.1%);
+  color: rgb(81, 81, 81);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -228,7 +232,8 @@ body {
 }
 
 .edit-task-btn {
-  background-color: #d57d7d;
+  background: linear-gradient(109.6deg, rgb(151, 213, 255) 11.2%, rgb(255, 155, 185) 91.1%);
+  color: rgb(81, 81, 81);
   border-radius: 10px;
   padding: 10px 30px 10px 30px;
   margin: 20px;
@@ -236,11 +241,14 @@ body {
   font-size: 20px;
   color: white;
 }
+.add-desc::placeholder {
+  color: gray;
+}
 
 textarea {
-  width: 500px;
+  width: 95%;
   margin-bottom: 10px;
-  border: 0.5px solid grey;
+  border: 0.5px solid rgb(107, 107, 107);
   border-radius: 5px;
   font-size: 14px;
   padding-left: 10px;
@@ -249,7 +257,7 @@ textarea {
 }
 
 .input {
-  width: 500px;
+  width: 94%;
   margin-bottom: 10px;
   border: 0.5px solid grey;
   border-radius: 5px;
@@ -261,17 +269,18 @@ textarea {
 }
 
 .add-task-btn {
-  background-color: #d57d7d;
+  background: linear-gradient(109.6deg, rgb(151, 213, 255) 11.2%, rgb(255, 155, 185) 91.1%);
+  color: rgb(81, 81, 81);
   border-radius: 10px;
   padding: 10px 30px 10px 30px;
   margin: 20px;
   border: none;
   font-size: 20px;
-  color: white;
 }
 
 .task-text {
-  font-size: 17px;
+  font-size: 14px;
+  font-family: 'Cormorant Garamond', serif;
 }
 
 /* <!-- Modal add ENDS --> */
@@ -360,7 +369,7 @@ textarea {
   }
 
   .all-projects-menu {
-    margin-top: 120px;
+    
     border-bottom: 1px solid;
     text-align: center;
   }
@@ -445,6 +454,18 @@ textarea {
 
     .task-text {
       font-size: 14px;
+    }
+
+    .modal {
+      width: 550px;
+    }
+
+    textarea {
+      width: 500px;
+    } 
+
+    .input {
+      width: 500px;
     }
   }
 }

@@ -39,9 +39,6 @@ openModalBtn.addEventListener('click', () => {
 });
 // -- Function to close modal --
 function closeModal() {
-  console.log('clicked');
-  const id = modalEdit.getAttribute('data-id');
-  console.log(id);
   modalEdit.classList.remove('active');
   modalAdd.classList.remove('active');
   overlay.classList.remove('active');
@@ -73,6 +70,8 @@ addBtn.addEventListener('click', (e) => {
     closeModal();
   }
 });
+const closeModalBtn = document.querySelector('.close-modal');
+closeModalBtn.addEventListener('click', closeModal);
 
 function editTask(id, editTitleInput, editDescInput, editDateInput) {
   // Get the updated task information from the modal input fields
