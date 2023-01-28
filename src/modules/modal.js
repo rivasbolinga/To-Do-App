@@ -2,9 +2,6 @@ const modalEdit = document.querySelector('.edit-task');
 const modalAdd = document.querySelector('.modal-add');
 const overlay = document.querySelector('.overlay');
 
-import { editTask,
-addTask } from "./crud";
-
 // -- Function to close modal --
 const closeModal = function () {
   modalEdit.classList.remove('active');
@@ -16,10 +13,23 @@ const closeModal = function () {
   while (overlay.firstChild) {
     overlay.removeChild(overlay.firstChild);
   }
-}
+};
 const closeModalBtn = document.querySelector('.close-modal');
 closeModalBtn.addEventListener('click', closeModal);
 
+function editTask(id, editTitleInput, editDescInput, editDateInput) {
+  // Get the updated task information from the modal input fields
+  const newTitle = editTitleInput.value;
+  const newDescription = editDescInput.value;
+  const newDate = editDateInput.value;
+  const taskContainer = document.querySelector(`[data-index='${id}']`);
+  const dateContainer = document.querySelector(`[date-index='${id}']`);
+  taskContainer.textContent = newTitle;
+  dateContainer.textContent = newDate;
+  Storage.editTask(newTitle, newDescription, newDate, id);
+  // Close the modal
+  closeModal();
+}
 // --Create a modal to edit task.
 function createEditModal(id) {
   modalEdit.classList.add('active');
@@ -133,5 +143,5 @@ function createInfoModal(id) {
 export {
   closeModal,
   createEditModal,
-  createInfoModal
-}
+  createInfoModal,
+};

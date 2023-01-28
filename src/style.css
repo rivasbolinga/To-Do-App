@@ -76,6 +76,7 @@ body {
   top: 4px;
   left: 4px;
 }
+
 /* <!-- Sidebar menu ENDS --> */
 
 /* <!-- Main app  --> */
@@ -282,6 +283,7 @@ textarea {
   font-size: 12px;
   font-family: 'Raleway', sans-serif;
 }
+
 /* <!-- Modal  ENDS --> */
 
 /* <!-- Modal info starts --> */
@@ -318,6 +320,7 @@ textarea {
   background: linear-gradient(109.6deg, rgb(151, 213, 255) 11.2%, rgb(255, 155, 185) 91.1%);
   color: rgb(81, 81, 81);
 }
+
 /* <!-- Modal info ENDS --> */
 @media only screen and (min-width: 768px) {
   /* <!-- Sidebar menu STARTS --> */
@@ -376,6 +379,7 @@ textarea {
     background-color: whitesmoke;
     border-radius: 10px;
   }
+
   /* <!-- Sidebar menu ENDS --> */
 
   /* <!-- Main app--> */

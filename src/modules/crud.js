@@ -1,7 +1,7 @@
-import { 
+import {
   closeModal,
   createEditModal,
-  createInfoModal
+  createInfoModal,
 } from './modal.js';
 import Storage from './localStorage.js';
 import Task from './task.js';
@@ -12,7 +12,7 @@ const titleInput = document.querySelector('.add-title');
 const descriptionInput = document.querySelector('.add-desc');
 const dateInput = document.querySelector('.add-date');
 
- function displayTask(task) {
+function displayTask(task) {
   const html = `
   <div class="task-container">
      <div class="checkbox-task">
@@ -28,7 +28,7 @@ const dateInput = document.querySelector('.add-date');
   listContainer.innerHTML += html;
 }
 
- function displayTasks() {
+function displayTasks() {
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   tasks.forEach((task) => {
     const html = `
@@ -49,7 +49,7 @@ const dateInput = document.querySelector('.add-date');
 
 // -- Function to add new task when click add button --
 
-  addBtn.addEventListener('click', (e) => {
+addBtn.addEventListener('click', (e) => {
   e.preventDefault();
   const tasks = Storage.getTasks();
   const newTitle = titleInput.value;
@@ -73,21 +73,6 @@ const dateInput = document.querySelector('.add-date');
 const closeModalBtn = document.querySelector('.close-modal');
 closeModalBtn.addEventListener('click', closeModal);
 
-
-
-function editTask(id, editTitleInput, editDescInput, editDateInput) {
-  // Get the updated task information from the modal input fields
-  const newTitle = editTitleInput.value;
-  const newDescription = editDescInput.value;
-  const newDate = editDateInput.value;
-  const taskContainer = document.querySelector(`[data-index='${id}']`);
-  const dateContainer = document.querySelector(`[date-index='${id}']`);
-  taskContainer.textContent = newTitle;
-  dateContainer.textContent = newDate;
-  Storage.editTask(newTitle, newDescription, newDate, id);
-  // Close the modal
-  closeModal();
-}
 // -- Function to handle click functions inside task container--
 const clickHandle = (e) => {
   if (e.target.classList.contains('fa-pen-to-square')) {
@@ -119,8 +104,8 @@ const clickHandle = (e) => {
 // --Event to handle UI in task --
 listContainer.addEventListener('click', clickHandle);
 export {
-  editTask,
+
   displayTask,
   displayTasks,
-  clickHandle
-}
+  clickHandle,
+};

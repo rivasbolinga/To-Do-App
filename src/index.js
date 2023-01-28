@@ -1,9 +1,7 @@
-
 import './style.css';
-import _ from 'lodash';
 import {
   displayTasks,
-} from './modules/crud.js'
+} from './modules/crud.js';
 
 const openModalBtn = document.querySelector('.open-modal-btn');
 const modalAdd = document.querySelector('.modal-add');
