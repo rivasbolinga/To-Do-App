@@ -1,17 +1,18 @@
 
 <div align="center">
-  <img src="./img/cf929df3b4640fa9e3893c370d8448cf0ffe7fbf.jpg" alt="logo" width="140"  height="auto"  />
+<img width="320" alt="Screenshot 2023-01-28 at 09 59 42" src="https://user-images.githubusercontent.com/103900838/215257205-f6a6f12c-bfbe-4f18-880c-c58358554001.png">
+
+<img width="1440" alt="Screenshot 2023-01-28 at 09 59 27" src="https://user-images.githubusercontent.com/103900838/215257208-bc05acba-2341-46fa-8d07-2436143e9e2c.png">
+
   <br/>
 
 
 
-# 📖 [To Do - AP] <a name="about-project"></a>
+# 📖 [To Do - APP] <a name="about-project"></a>
 
 </div>
-**[To Do - App]** is a small app where you can record all your tasks an projects you have to do. You can organize your week, stared the most important tasks and to stored the completed ones. 
-<img src="./img/mobile-v-library.png" alt="screenshot" width="650"  height="auto">
 
-<img src="./img/Screenshot 2023-01-15 at 11.50.31.png" width="740"  height="auto">
+ **[To Do - App]**  is a small app where you can record all your tasks an projects you have to do. You can organize your week, stared the most important tasks and to stored the completed ones. 
 
 ## Requierements ##
 
