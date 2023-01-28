@@ -29,3 +29,13 @@ openModalBtn.addEventListener('click', () => {
 });
 
 window.addEventListener('load', displayTasks);
+
+sideBar.addEventListener('click', (e)=> {
+  if(e.target.classList.contains('checked')) {
+    displayChecked();
+  }
+})
+
+function displayChecked() {
+  
+}
