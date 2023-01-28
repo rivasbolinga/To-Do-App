@@ -103,8 +103,8 @@ const clickHandle = (e) => {
 };
 // --Event to handle UI in task --
 listContainer.addEventListener('click', clickHandle);
-export {
 
+export {
   displayTask,
   displayTasks,
   clickHandle,

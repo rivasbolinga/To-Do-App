@@ -1,3 +1,5 @@
+import Storage from './localStorage.js';
+
 const modalEdit = document.querySelector('.edit-task');
 const modalAdd = document.querySelector('.modal-add');
 const overlay = document.querySelector('.overlay');
