@@ -12,8 +12,7 @@
 
 </div>
 
- **[To Do - App]**  is a small app where you can record all your tasks an projects you have to do. You can organize your week, stared the most important tasks and to stored the completed ones. 
-
+ **[To Do - App]**   is a small app where you can record all your tasks and projects you have to do. You can organize your week, and mark important and completed tasks. 
 ## Requierements ##
 
   1. Your todo list should have projects or separate lists of todos.
@@ -45,7 +44,7 @@
 
 > Here you can see the live demo of my project:
 
-- [Live Demo Link](https://rivasbolinga.github.io/Library/)
+- [Live Demo Link](https://rivasbolinga.github.io/To-Do-App/dist/)
 
 
 👤 **Andrea Rivas Palacios**
@@ -56,7 +55,18 @@
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Cooming soon;
+> Cooming soon...
 
 - [ ] **[Side bar dinamic]**
 - [ ] **[Next pages to save lots of to do]**
+
+<!-- SUPPORT -->
+
+## ⭐️ Show your support <a name="support"></a>
+
+
+Thank you for visiting my profile, if you like this project, you can show your support by giving me a nice :star:️ 
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
