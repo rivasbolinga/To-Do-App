@@ -4,14 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Varela+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300&family=Fredoka+One&family=Gloria+Hallelujah&family=Padyakke+Expanded+One&family=Raleway&family=Varela+Round&display=swap" rel="stylesheet">
 
 <script src="https://kit.fontawesome.com/713945395b.js" crossorigin="anonymous"></script>
     <title>TO DO APP</title>
 </head>
 <body>
+    <button class="hamburger-menu">
+      <i class="fa-solid fa-bars fa-xl"></i>
+    </button>
     <nav class="sidebar-menu">
+      <button class="close-menu-btn">x</button>
       <div class="all-tasks-menu">
         <a href="#" class="menu-link">
           <i class="fa-solid fa-list"></i>
@@ -39,9 +43,89 @@
       </div>
     </nav>
     <main class="main-app">
-      
-      <h1 class="app-title"> TO DO APP</h1>
-      <div class="task-container"></div>
+      <h1 class="app-title">
+        <i class="fa-solid fa-clipboard-list"></i>
+         TO DO APP</h1>
+      <div class="list-container">
+        <div class="title-section">
+          <h2>ALL TASKS</h2>
+          <button class="open-modal-btn">+</button>
+          </div>
+        
+      <div class="all-tasks">
+        <div class="task-container">
+          <div class="checkbox-task">
+            <input class="checkbox" type="checkbox">
+            <p class="task-text">Clean house</p>
+          </div>
+          <div class="all-icons">
+            <i class="fa-regular fa-pen-to-square"></i>
+          <i class="fa-regular fa-trash-can"></i>
+          </div>
+        </div>
+        <div class="task-container">
+          <div class="checkbox-task">
+            <input class="checkbox" type="checkbox">
+            <p class="task-text">Fix car</p>
+          </div>
+          <div class="all-icons">
+            <i class="fa-regular fa-pen-to-square"></i>
+          <i class="fa-regular fa-trash-can"></i>
+          </div>
+          
+          
+        </div>
+      </div>
+      </div>
     </main>
+    <div class="modal modal-add">
+      <div class="title-modal">
+        <h3>Add new task</h3>
+        <button class="close-modal">x</button>
+      </div>
+      <div class="form-container">
+        <form class="form">
+          <div class="add-container title">
+            <label 
+              class="add-title-label">Title
+             </label>
+            <input 
+             class="add-title input"
+             type="text"
+             required
+            placeholder="Add title">
+          </div>
+          
+          <div class="add-container description">
+            <label 
+              class="add-desc-label">Description
+            </label>
+            <textarea 
+              class="add-desc"
+              type="text"
+              placeholder="Add a Description...."></textarea>
+              </div>
+          <div class="add-container date">
+             <label 
+              class="add-date-label">
+              Due date
+             </label>
+             <input 
+             class="add-date input"
+             type="date">
+
+            </div>
+          <button class="add-task-btn">Add</button>
+        </form>
+      </div>
+    </div>
+    <div class="modal edit-task">
+      
+    
+      </div>
+    </div>
+    <div class="overlay"></div>
+   
+  </div>
 </body>
 </html>
