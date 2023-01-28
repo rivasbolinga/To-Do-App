@@ -133,7 +133,7 @@ body {
   gap: 10px;
 }
 
-/* <!-- Modal add starts --> */
+/* <!-- Modal starts --> */
 .modal {
   position: fixed;
   z-index: 1;
@@ -284,7 +284,7 @@ textarea {
   font-family: 'Raleway', sans-serif;
 }
 
-/* <!-- Modal add ENDS --> */
+/* <!-- Modal  ENDS --> */
 
 /* <!-- Modal info starts --> */
 .modal-info-container {
@@ -321,6 +321,7 @@ textarea {
   color: rgb(81, 81, 81);
 }
 
+/* <!-- Modal info ENDS --> */
 @media only screen and (min-width: 768px) {
   /* <!-- Sidebar menu STARTS --> */
   .close-menu-btn {
