@@ -269,6 +269,9 @@ textarea {
   color: rgba(128, 128, 128, 0.638);
 }
 
+.choose-importance {
+  text-align: left;
+}
 .add-task-btn {
   background: linear-gradient(109.6deg, rgb(151, 213, 255) 11.2%, rgb(255, 155, 185) 91.1%);
   color: rgb(81, 81, 81);
@@ -283,6 +286,7 @@ textarea {
   font-size: 12px;
   font-family: 'Raleway', sans-serif;
 }
+
 
 /* <!-- Modal  ENDS --> */
 

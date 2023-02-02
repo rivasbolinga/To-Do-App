@@ -1,3 +1,4 @@
+
 import Storage from './localStorage.js';
 
 const modalEdit = document.querySelector('.edit-task');
@@ -96,6 +97,30 @@ function createEditModal(id) {
   form.appendChild(editDateContainer);
   editDateContainer.appendChild(editDatelabel);
   editDateContainer.appendChild(editDateInput);
+  // importance
+  const editImportanceContainer= document.createElement('div');
+  editImportanceContainer.classList.add('choose-importance');
+  const editImportanceLabel = document.createElement('label');
+  editImportanceLabel.classList.add('importance-label');
+  editImportanceLabel.textContent = 'How Important?'
+  const editImportanceSelect = document.createElement('select');
+  editImportanceSelect.classList.add('important-select');
+  const option = document.createElement('option');
+  option.textContent = '--Please choose an option--';
+  const optionN = document.createElement('option');
+  optionN.classList.add('no-important');
+  optionN.textContent = 'Not much'
+  const optionY = document.createElement('option');
+  optionY.classList.add('yes-important');
+  optionY.textContent = 'Super Important!!'
+  form.appendChild(editImportanceContainer);
+  editImportanceContainer.appendChild(editImportanceLabel);
+  editImportanceContainer.appendChild(editImportanceSelect);
+  editImportanceSelect.appendChild(option);
+  editImportanceSelect.appendChild(optionN);
+  editImportanceSelect.appendChild(optionY);
+
+  //button edit
   const buttonEdit = document.createElement('button');
   buttonEdit.classList.add('edit-task-btn');
   buttonEdit.textContent = 'Edit';
@@ -130,11 +155,15 @@ function createInfoModal(id) {
    <div class="description-container">
      <h4 class="info-title">Description</h4>
      <p class="info">${tasks[id].description}</p>
-     <div class="date-info-container">
+     </div>
+    <div class="date-info-container">
      <h4 class="info-title">Date</h4>
      <div class="info">${tasks[id].dueDate}</div>
      </div>
-       </div>
+     <div class="importance-div">
+     <h4 class="info-title">Importance</h4>
+     <p class="info">${tasks[id].importance}</p>
+     </div>
     </div>
   </div>`;
   modalEdit.insertAdjacentHTML('beforeend', html);

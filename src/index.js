@@ -1,14 +1,11 @@
 import './style.css';
-import {
-  displayTasks,
-} from './modules/crud.js';
-
+import './modules/sidebar.js'
 const openModalBtn = document.querySelector('.open-modal-btn');
 const modalAdd = document.querySelector('.modal-add');
 const overlay = document.querySelector('.overlay');
 const hambMenu = document.querySelector('.hamburger-menu');
-const sideBar = document.querySelector('.sidebar-menu');
 const closeMenu = document.querySelector('.close-menu-btn');
+
 // ---- EVENT LISTENERES ---
 
 // -- Function to open menu for mobile version --
@@ -27,15 +24,3 @@ openModalBtn.addEventListener('click', () => {
   modalAdd.classList.add('active');
   overlay.classList.add('active');
 });
-
-window.addEventListener('load', displayTasks);
-
-sideBar.addEventListener('click', (e)=> {
-  if(e.target.classList.contains('checked')) {
-    displayChecked();
-  }
-})
-
-function displayChecked() {
-  
-}

@@ -7,5 +7,6 @@ export default class Task {
     this.dueDate = dueDate;
     this.index = index;
     this.completed = false;
+    this.important = false;
   }
 }
