@@ -7,13 +7,31 @@ import Storage from './localStorage.js';
 import Task from './task.js';
 
 const listContainer = document.querySelector('.all-tasks');
-const addBtn = document.querySelector('.add-task-btn');
 const titleInput = document.querySelector('.add-title');
 const descriptionInput = document.querySelector('.add-desc');
 const dateInput = document.querySelector('.add-date');
 const titleSection = document.querySelector('.title-section-text');
+const importance = document.querySelector('.important-select')
+const addForm = document.querySelector('.form');
 
 function displayTask(task) {
+  if(task.important === 'important') {
+    const html = `
+    <div class="task-container important">
+     <div class="checkbox-task">
+      <input id="${task.index}" class="checkbox" type="checkbox">
+      <p data-index="${task.index}" class="task-text">${task.title}
+      <i class="fa-solid fa-star"></i>
+      </p>
+     </div>
+    <div class="all-icons">
+    <p date-index="${task.index}" class="task-date">${task.dueDate}</p>
+    <i id="${task.index}" class="fa-solid fa-magnifying-glass"></i>
+      <i id="${task.index}" class="fa-regular fa-pen-to-square"></i>
+    <i id="${task.index}" class="fa-regular fa-trash-can"></i>
+    </div>`;
+    listContainer.innerHTML += html;
+  } else {
   const html = `
   <div class="task-container">
      <div class="checkbox-task">
@@ -27,13 +45,14 @@ function displayTask(task) {
     <i id="${task.index}" class="fa-regular fa-trash-can"></i>
     </div>`;
   listContainer.innerHTML += html;
+  }
 }
 
 function displayTasks() {
   titleSection.textContent = "ALL TASKS"
   const tasks = JSON.parse(localStorage.getItem('tasks'));
   tasks.forEach((task) => {
-    const html = `
+      const html = `
     <div class="task-container">
      <div class="checkbox-task">
       <input id="${task.index}" class="checkbox" type="checkbox">
@@ -46,15 +65,17 @@ function displayTasks() {
     <i id="${task.index}" class="fa-regular fa-trash-can"></i>
     </div>`;
     listContainer.innerHTML += html;
-  });
-}
+    }); 
+  }
+
 
 function displayChecked() {
   titleSection.textContent = "COMPLETED TASKS"
     const tasks = JSON.parse(localStorage.getItem('tasks'));
+    let html = '';
     tasks.forEach((task) => {
       if(task.completed) {
-         const html = `
+         html = `
       <div class="task-container">
        <div class="checkbox-task">
         <input id="${task.index}" class="checkbox" type="checkbox">
@@ -68,22 +89,24 @@ function displayChecked() {
       </div>`;
       listContainer.innerHTML += html;
       }  else if(task.completed === false) {
-        const html  = '';
+         html  = '';
         listContainer.innerHTML += html;
       }
 
     });
   }
   function displayImportant() {
-    titleSection.textContent = "IMPORTANT"
+    titleSection.textContent = "IMPORTANT";
       const tasks = JSON.parse(localStorage.getItem('tasks'));
+      let html = '';
       tasks.forEach((task) => {
-        if(task.important) {
-           const html = `
-        <div class="task-container">
+        if(task.important === 'important') {
+          html += `
+        <div class="task-container important">
          <div class="checkbox-task">
           <input id="${task.index}" class="checkbox" type="checkbox">
-          <p data-index="${task.index}" class="task-text completed">${task.title}</p>
+          <p data-index="${task.index}" class="task-text">${task.title}
+          <i class="fa-solid fa-star"></i></p>
          </div>
         <div class="all-icons">
         <p date-index="${task.index}" class="task-date">${task.dueDate}</p>
@@ -91,22 +114,23 @@ function displayChecked() {
           <i id="${task.index}" class="fa-regular fa-pen-to-square"></i>
         <i id="${task.index}" class="fa-regular fa-trash-can"></i>
         </div>`;
-        listContainer.innerHTML += html;
-        }  else if(task.completed === false) {
-          const html  = '';
-          listContainer.innerHTML += html;
+        listContainer.innerHTML = html;
+        }  else {
+           html  += '';
+          listContainer.innerHTML = html;
         }
   
       });
     }
 // -- Function to add new task when click add button --
 
-addBtn.addEventListener('click', (e) => {
+addForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const tasks = Storage.getTasks();
   const newTitle = titleInput.value;
   const newDescription = descriptionInput.value;
   const newDate = dateInput.value;
+  const important = importance.value
   let index;
   const len = tasks.length;
   if (len === 0 || len === null) {
@@ -115,7 +139,7 @@ addBtn.addEventListener('click', (e) => {
     index = tasks[len - 1].index + 1;
   }
   if (newTitle) {
-    const newTask = new Task(newTitle, newDescription, newDate, Number(index), false, false); //
+    const newTask = new Task(newTitle, newDescription, newDate, Number(index),important, false); //
     Storage.addTask(newTask);
     displayTask(newTask);
     closeModal();

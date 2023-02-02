@@ -110,9 +110,11 @@ function createEditModal(id) {
   const optionN = document.createElement('option');
   optionN.classList.add('no-important');
   optionN.textContent = 'Not much'
+  optionN.value = "Not important"
   const optionY = document.createElement('option');
   optionY.classList.add('yes-important');
   optionY.textContent = 'Super Important!!'
+  optionY.value = 'Important';
   form.appendChild(editImportanceContainer);
   editImportanceContainer.appendChild(editImportanceLabel);
   editImportanceContainer.appendChild(editImportanceSelect);
@@ -162,7 +164,7 @@ function createInfoModal(id) {
      </div>
      <div class="importance-div">
      <h4 class="info-title">Importance</h4>
-     <p class="info">${tasks[id].importance}</p>
+     <p class="info">${tasks[id].important}</p>
      </div>
     </div>
   </div>`;
