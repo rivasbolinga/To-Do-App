@@ -62,6 +62,7 @@ function createEditModal(id) {
   editTitleInput.classList.add('add-title');
   editTitleInput.classList.add('input');
   editTitleInput.type = 'text';
+  editTitleInput.required = true;
   editTitleInput.id = id;
   modalEdit.appendChild(formContainer);
   formContainer.appendChild(form);

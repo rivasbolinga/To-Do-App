@@ -57,7 +57,7 @@
 
 > Cooming soon...
 
-- [ ] **[Store the tasks in the week section]**
+- [ ] **[Store the tasks in projects]**
 - [ ] **[Next pages to save lots of to do]**
 
 <!-- SUPPORT -->
