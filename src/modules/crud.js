@@ -17,7 +17,7 @@ const addForm = document.querySelector('.form');
 function displayTask(task) {
   if(task.important === 'important') {
     const html = `
-    <div class="task-container important">
+    <div class="task-container" data-task-importance="important">
      <div class="checkbox-task">
       <input id="${task.index}" class="checkbox" type="checkbox">
       <p data-index="${task.index}" class="task-text">${task.title}
@@ -71,55 +71,25 @@ function displayTasks() {
 
 function displayChecked() {
   titleSection.textContent = "COMPLETED TASKS"
-    const tasks = JSON.parse(localStorage.getItem('tasks'));
-    let html = '';
-    tasks.forEach((task) => {
-      if(task.completed) {
-         html = `
-      <div class="task-container">
-       <div class="checkbox-task">
-        <input id="${task.index}" class="checkbox" type="checkbox">
-        <p data-index="${task.index}" class="task-text completed">${task.title}</p>
-       </div>
-      <div class="all-icons">
-      <p date-index="${task.index}" class="task-date">${task.dueDate}</p>
-      <i id="${task.index}" class="fa-solid fa-magnifying-glass"></i>
-        <i id="${task.index}" class="fa-regular fa-pen-to-square"></i>
-      <i id="${task.index}" class="fa-regular fa-trash-can"></i>
-      </div>`;
-      listContainer.innerHTML += html;
-      }  else if(task.completed === false) {
-         html  = '';
-        listContainer.innerHTML += html;
-      }
-
-    });
+  const tasks = document.querySelectorAll('.task-container');
+  tasks.forEach(task => {
+    if(task.dataset.taskImportance === "true") {
+      task.style.display = 'block';
+    } else {
+      task.style.display = 'none';
+    }
+  });
   }
   function displayImportant() {
     titleSection.textContent = "IMPORTANT";
-      const tasks = JSON.parse(localStorage.getItem('tasks'));
-      let html = '';
-      tasks.forEach((task) => {
-        if(task.important === 'important') {
-          html += `
-        <div class="task-container important">
-         <div class="checkbox-task">
-          <input id="${task.index}" class="checkbox" type="checkbox">
-          <p data-index="${task.index}" class="task-text">${task.title}
-          <i class="fa-solid fa-star"></i></p>
-         </div>
-        <div class="all-icons">
-        <p date-index="${task.index}" class="task-date">${task.dueDate}</p>
-        <i id="${task.index}" class="fa-solid fa-magnifying-glass"></i>
-          <i id="${task.index}" class="fa-regular fa-pen-to-square"></i>
-        <i id="${task.index}" class="fa-regular fa-trash-can"></i>
-        </div>`;
-        listContainer.innerHTML = html;
-        }  else {
-           html  += '';
-          listContainer.innerHTML = html;
-        }
-      });
+    const tasks = document.querySelectorAll('.task-container');
+    tasks.forEach(task => {
+      if(task.dataset.taskImportance === "important") {
+        task.style.display = 'flex';
+      } else {
+        task.style.display = 'none';
+      }
+    });
     }
 // -- Function to add new task when click add button --
 
@@ -165,10 +135,12 @@ const clickHandle = (e) => {
     const checkbox = e.target;
     const sibling = checkbox.closest('.task-container').querySelector('.task-text');
     if (checkbox.checked) {
+      sibling.dataset.taskStatus = 'completed';
       sibling.classList.add('completed');
       Storage.updateStatus(id);
     } else {
       sibling.classList.remove('completed');
+      delete sibling.dataset.taskStatus;
       Storage.updateStatus(id);
     }
   } else if (e.target.classList.contains('fa-magnifying-glass')) {

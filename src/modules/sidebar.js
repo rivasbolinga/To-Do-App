@@ -3,20 +3,12 @@ import {
   displayChecked,
   displayImportant
 } from "./crud";
-const sideBar = document.querySelector('.sidebar-menu');
 
-sideBar.addEventListener('click', (e) => {
-  switch (true) {
-    case e.target.classList.contains('checked'):
-      displayChecked();
-      break;
-    case e.target.classList.contains('all'):
-      displayTasks();
-      break;
-    case e.target.classList.contains('important'):
-      displayImportant();
-      break;
-    default:
-      break;
-  }
-})
+const sideBar = document.querySelector('.all-tasks-menu');
+const allLink  = document.querySelector('.all');
+const importantLink = document.querySelector('.important');
+const checkedLink = document.querySelector('.checked');
+allLink.addEventListener('click', displayTasks);
+importantLink.addEventListener('click', displayImportant);
+checkedLink.addEventListener('click',displayChecked);
+
