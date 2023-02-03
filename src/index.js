@@ -1,6 +1,7 @@
 import './style.css';
 import './modules/sidebar.js';
 import './modules/crud.js';
+import { displayTasks } from './modules/display';
 
 const openModalBtn = document.querySelector('.open-modal-btn');
 const modalAdd = document.querySelector('.modal-add');
@@ -24,3 +25,5 @@ openModalBtn.addEventListener('click', () => {
   modalAdd.classList.add('active');
   overlay.classList.add('active');
 });
+
+document.addEventListener('DOMContentLoaded', displayTasks);

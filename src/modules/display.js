@@ -1,3 +1,5 @@
+import { format } from 'date-fns';
+
 const listContainer = document.querySelector('.all-tasks');
 const titleSection = document.querySelector('.title-section-text');
 
@@ -138,10 +140,25 @@ function displayImportant() {
     }
   });
 }
+function displayToday() {
+  const dateOfToday = format(new Date(), 'yyyy-MM-dd');
+  const tasks = document.querySelectorAll('.task-container');
+  titleSection.textContent = 'TODAY';
+  tasks.forEach((task) => {
+    const taskDate = task.querySelector('.task-date').textContent;
+    console.log(taskDate);
+    if (taskDate === dateOfToday) {
+      task.style.display = 'flex';
+    } else {
+      task.style.display = 'none';
+    }
+  });
+}
 
 export {
   displayTask,
   displayChecked,
   displayTasks,
   displayImportant,
+  displayToday,
 };
