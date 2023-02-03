@@ -44,7 +44,7 @@
 
 > Here you can see the live demo of my project:
 
-- [Live Demo Link](https://rivasbolinga.github.io/To-Do-App/dist/)
+- [Live Demo Link](https://rivasbolinga.github.io/To-Do-App/)
 
 
 👤 **Andrea Rivas Palacios**
