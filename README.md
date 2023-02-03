@@ -57,7 +57,7 @@
 
 > Cooming soon...
 
-- [ ] **[Side bar dinamic]**
+- [ ] **[Store the tasks in the week section]**
 - [ ] **[Next pages to save lots of to do]**
 
 <!-- SUPPORT -->

@@ -19,16 +19,17 @@ const closeModal = function () {
 const closeModalBtn = document.querySelector('.close-modal');
 closeModalBtn.addEventListener('click', closeModal);
 
-function editTask(id, editTitleInput, editDescInput, editDateInput) {
+function editTask(editTitleInput, editDescInput, editDateInput, id, importance) {
   // Get the updated task information from the modal input fields
   const newTitle = editTitleInput.value;
   const newDescription = editDescInput.value;
   const newDate = editDateInput.value;
+  const important = importance.value;
   const taskContainer = document.querySelector(`[data-index='${id}']`);
-  const dateContainer = document.querySelector(`[date-index='${id}']`);
+  const dateContainer = document.querySelector(`[data-date-index='${id}']`);
   taskContainer.textContent = newTitle;
   dateContainer.textContent = newDate;
-  Storage.editTask(newTitle, newDescription, newDate, id);
+  Storage.editTask(newTitle, newDescription, newDate, id, important);
   // Close the modal
   closeModal();
 }
@@ -96,6 +97,32 @@ function createEditModal(id) {
   form.appendChild(editDateContainer);
   editDateContainer.appendChild(editDatelabel);
   editDateContainer.appendChild(editDateInput);
+  // importance
+  const editImportanceContainer = document.createElement('div');
+  editImportanceContainer.classList.add('choose-importance');
+  const editImportanceLabel = document.createElement('label');
+  editImportanceLabel.classList.add('importance-label');
+  editImportanceLabel.textContent = 'How Important?';
+  const editImportanceSelect = document.createElement('select');
+  editImportanceSelect.classList.add('important-select');
+  const option = document.createElement('option');
+  option.textContent = '--Please choose an option--';
+  const optionN = document.createElement('option');
+  optionN.classList.add('no-important');
+  optionN.textContent = 'Not much';
+  optionN.value = 'Not important';
+  const optionY = document.createElement('option');
+  optionY.classList.add('yes-important');
+  optionY.textContent = 'Super Important!!';
+  optionY.value = 'Important';
+  form.appendChild(editImportanceContainer);
+  editImportanceContainer.appendChild(editImportanceLabel);
+  editImportanceContainer.appendChild(editImportanceSelect);
+  editImportanceSelect.appendChild(option);
+  editImportanceSelect.appendChild(optionN);
+  editImportanceSelect.appendChild(optionY);
+
+  // button edit
   const buttonEdit = document.createElement('button');
   buttonEdit.classList.add('edit-task-btn');
   buttonEdit.textContent = 'Edit';
@@ -108,7 +135,7 @@ function createEditModal(id) {
   buttonEdit.addEventListener('click', (e) => {
     e.preventDefault();
     const { id } = e.target;
-    editTask(id, editTitleInput, editDescInput, editDateInput);
+    editTask(editTitleInput, editDescInput, editDateInput, id, editImportanceSelect);
   });
 }
 
@@ -130,11 +157,15 @@ function createInfoModal(id) {
    <div class="description-container">
      <h4 class="info-title">Description</h4>
      <p class="info">${tasks[id].description}</p>
-     <div class="date-info-container">
+     </div>
+    <div class="date-info-container">
      <h4 class="info-title">Date</h4>
      <div class="info">${tasks[id].dueDate}</div>
      </div>
-       </div>
+     <div class="importance-div">
+     <h4 class="info-title">Importance</h4>
+     <p class="info">${tasks[id].important}</p>
+     </div>
     </div>
   </div>`;
   modalEdit.insertAdjacentHTML('beforeend', html);

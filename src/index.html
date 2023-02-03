@@ -17,19 +17,19 @@
     <nav class="sidebar-menu">
       <button class="close-menu-btn">x</button>
       <div class="all-tasks-menu">
-        <a href="#" class="menu-link">
+        <a href="#" class="menu-link all">
           <i class="fa-solid fa-list"></i>
-          <p class="link-description">All tasks</p>
+          <p class="link-description ">All tasks</p>
         </a>
-        <a href="#" class="menu-link">
+        <a href="#" class="menu-link important">
           <i class="fa-solid fa-star"></i>
           <p class="link-description">Important</p>
         </a>
-        <a href="#" class="menu-link">
+        <a href="#" class="menu-link checked">
           <i class="fa-solid fa-check"></i>
-          <p class="link-description">Completed</p>
+          <p class="link-description ">Completed</p>
         </a>
-        <a href="#" class="menu-link">
+        <a href="#" class="menu-link week">
           <i class="fa-solid fa-calendar-week"></i>
           <p class="link-description">Week</p>
         </a>
@@ -48,7 +48,7 @@
          TO DO APP</h1>
       <div class="list-container">
         <div class="title-section">
-          <h2>ALL TASKS</h2>
+          <h2 class="title-section-text">ALL TASKS</h2>
           <button class="open-modal-btn">+</button>
           </div>
         
@@ -113,8 +113,15 @@
              <input 
              class="add-date input"
              type="date">
-
             </div>
+          <div class="choose-importance">
+            <label class="important-label">How important?</label>
+            <select class="important-select">
+              <option value="">--Please choose an option--</option>
+              <option value= "not important" class="no-important">Not much</option>
+              <option value="important" class="yes-important">Super Important</option>
+             </select>
+          </div>
           <button class="add-task-btn">Add</button>
         </form>
       </div>
@@ -125,8 +132,9 @@
       </div>
     </div>
     <div class="overlay"></div>
-   
+
   </div>
-  <script src="index.js"></script>
+  <script src="dist/bundle.js"></script>
+
 </body>
 </html>
