@@ -2,9 +2,8 @@ import {
   displayTasks,
   displayChecked,
   displayImportant
-} from "./crud";
+} from "./display";
 
-const sideBar = document.querySelector('.all-tasks-menu');
 const allLink  = document.querySelector('.all');
 const importantLink = document.querySelector('.important');
 const checkedLink = document.querySelector('.checked');

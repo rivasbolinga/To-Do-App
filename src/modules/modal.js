@@ -20,16 +20,17 @@ const closeModal = function () {
 const closeModalBtn = document.querySelector('.close-modal');
 closeModalBtn.addEventListener('click', closeModal);
 
-function editTask(id, editTitleInput, editDescInput, editDateInput) {
+function editTask(editTitleInput, editDescInput, editDateInput,id, importance) {
   // Get the updated task information from the modal input fields
   const newTitle = editTitleInput.value;
   const newDescription = editDescInput.value;
   const newDate = editDateInput.value;
+  const important = importance.value
   const taskContainer = document.querySelector(`[data-index='${id}']`);
   const dateContainer = document.querySelector(`[date-index='${id}']`);
   taskContainer.textContent = newTitle;
   dateContainer.textContent = newDate;
-  Storage.editTask(newTitle, newDescription, newDate, id);
+  Storage.editTask(newTitle, newDescription, newDate, id, important);
   // Close the modal
   closeModal();
 }
@@ -135,7 +136,7 @@ function createEditModal(id) {
   buttonEdit.addEventListener('click', (e) => {
     e.preventDefault();
     const { id } = e.target;
-    editTask(id, editTitleInput, editDescInput, editDateInput);
+    editTask(editTitleInput, editDescInput, editDateInput, id, editImportanceSelect);
   });
 }
 

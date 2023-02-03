@@ -1,5 +1,7 @@
 import './style.css';
 import './modules/sidebar.js'
+import './modules/crud.js'
+
 const openModalBtn = document.querySelector('.open-modal-btn');
 const modalAdd = document.querySelector('.modal-add');
 const overlay = document.querySelector('.overlay');
