@@ -1,4 +1,3 @@
-
 import Storage from './localStorage.js';
 
 const modalEdit = document.querySelector('.edit-task');
@@ -20,14 +19,14 @@ const closeModal = function () {
 const closeModalBtn = document.querySelector('.close-modal');
 closeModalBtn.addEventListener('click', closeModal);
 
-function editTask(editTitleInput, editDescInput, editDateInput,id, importance) {
+function editTask(editTitleInput, editDescInput, editDateInput, id, importance) {
   // Get the updated task information from the modal input fields
   const newTitle = editTitleInput.value;
   const newDescription = editDescInput.value;
   const newDate = editDateInput.value;
-  const important = importance.value
+  const important = importance.value;
   const taskContainer = document.querySelector(`[data-index='${id}']`);
-  const dateContainer = document.querySelector(`[date-index='${id}']`);
+  const dateContainer = document.querySelector(`[data-date-index='${id}']`);
   taskContainer.textContent = newTitle;
   dateContainer.textContent = newDate;
   Storage.editTask(newTitle, newDescription, newDate, id, important);
@@ -99,22 +98,22 @@ function createEditModal(id) {
   editDateContainer.appendChild(editDatelabel);
   editDateContainer.appendChild(editDateInput);
   // importance
-  const editImportanceContainer= document.createElement('div');
+  const editImportanceContainer = document.createElement('div');
   editImportanceContainer.classList.add('choose-importance');
   const editImportanceLabel = document.createElement('label');
   editImportanceLabel.classList.add('importance-label');
-  editImportanceLabel.textContent = 'How Important?'
+  editImportanceLabel.textContent = 'How Important?';
   const editImportanceSelect = document.createElement('select');
   editImportanceSelect.classList.add('important-select');
   const option = document.createElement('option');
   option.textContent = '--Please choose an option--';
   const optionN = document.createElement('option');
   optionN.classList.add('no-important');
-  optionN.textContent = 'Not much'
-  optionN.value = "Not important"
+  optionN.textContent = 'Not much';
+  optionN.value = 'Not important';
   const optionY = document.createElement('option');
   optionY.classList.add('yes-important');
-  optionY.textContent = 'Super Important!!'
+  optionY.textContent = 'Super Important!!';
   optionY.value = 'Important';
   form.appendChild(editImportanceContainer);
   editImportanceContainer.appendChild(editImportanceLabel);
@@ -123,7 +122,7 @@ function createEditModal(id) {
   editImportanceSelect.appendChild(optionN);
   editImportanceSelect.appendChild(optionY);
 
-  //button edit
+  // button edit
   const buttonEdit = document.createElement('button');
   buttonEdit.classList.add('edit-task-btn');
   buttonEdit.textContent = 'Edit';

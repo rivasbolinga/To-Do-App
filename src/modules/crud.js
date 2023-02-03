@@ -4,19 +4,19 @@ import {
   createInfoModal,
 } from './modal.js';
 import {
-  displayTask
-} from './display.js'
+  displayTask,
+} from './display.js';
 import Storage from './localStorage.js';
 import Task from './task.js';
 
 const titleInput = document.querySelector('.add-title');
 const descriptionInput = document.querySelector('.add-desc');
 const dateInput = document.querySelector('.add-date');
-const importance = document.querySelector('.important-select')
+const importance = document.querySelector('.important-select');
 const addForm = document.querySelector('.form');
 const listContainer = document.querySelector('.all-tasks');
-// -- Function to add new task when click add button --
 
+// -- Function to add new task with form --
 addForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const tasks = Storage.getTasks();
@@ -32,7 +32,7 @@ addForm.addEventListener('submit', (e) => {
     index = tasks[len - 1].index + 1;
   }
   if (newTitle) {
-    const newTask = new Task(newTitle, newDescription, newDate, Number(index),important, false); //
+    const newTask = new Task(newTitle, newDescription, newDate, Number(index), important, false); //
     Storage.addTask(newTask);
     displayTask(newTask);
     addForm.reset();
@@ -76,6 +76,4 @@ const clickHandle = (e) => {
 // --Event to handle UI in task --
 listContainer.addEventListener('click', clickHandle);
 
-export {
-  clickHandle,
-};
+export default clickHandle;

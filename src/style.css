@@ -9,6 +9,7 @@ body {
 
 /* <!-- Sidebar menu STARTS --> */
 .sidebar-menu {
+  display: none;
   position: fixed;
   height: 100%;
   width: 95%;
@@ -233,8 +234,8 @@ body {
 }
 
 .fa-star {
-font-size: 12px;
-color: rgb(225, 219, 39);
+  font-size: 12px;
+  color: rgb(225, 219, 39);
 }
 
 .edit-task-btn {
@@ -277,6 +278,7 @@ textarea {
 .choose-importance {
   text-align: left;
 }
+
 .add-task-btn {
   background: linear-gradient(109.6deg, rgb(151, 213, 255) 11.2%, rgb(255, 155, 185) 91.1%);
   color: rgb(81, 81, 81);
