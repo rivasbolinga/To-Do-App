@@ -21,11 +21,13 @@
   "homepage": "https://github.com/rivasbolinga/To-Do-App#readme",
   "devDependencies": {
     "css-loader": "^6.7.3",
+    "csv-loader": "^3.0.5",
     "html-webpack-plugin": "^5.5.0",
     "style-loader": "^3.3.1",
     "webpack": "^5.75.0",
     "webpack-cli": "^5.0.1",
-    "webpack-dev-server": "^4.11.1"
+    "webpack-dev-server": "^4.11.1",
+    "xml-loader": "^1.2.1"
   },
   "dependencies": {
     "lodash": "^4.17.21"

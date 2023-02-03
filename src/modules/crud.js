@@ -119,7 +119,6 @@ function displayChecked() {
            html  += '';
           listContainer.innerHTML = html;
         }
-  
       });
     }
 // -- Function to add new task when click add button --
