@@ -8,7 +8,7 @@
 
 
 
-# 📖 [To Do - APP] <a name="about-project"></a>
+# 📖 To Do - APP <a name="about-project"></a>
 
 </div>
 
@@ -44,7 +44,7 @@
 
 > Here you can see the live demo of my project:
 
-- [Live Demo Link](https://rivasbolinga.github.io/To-Do-App/)
+- Live Demo Link(https://rivasbolinga.github.io/To-Do-App/)
 
 
 👤 **Andrea Rivas Palacios**
@@ -57,8 +57,8 @@
 
 > Cooming soon...
 
-- [ ] **[Store the tasks in projects]**
-- [ ] **[Next pages to save lots of to do]**
+- [ ] **Store the tasks in projects**
+- [ ] **Next pages to save lots of to do**
 
 <!-- SUPPORT -->
 
