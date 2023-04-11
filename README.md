@@ -42,7 +42,6 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Here you can see the live demo of my project:
 
 - Live Demo Link 📍 [here](https://rivasbolinga.github.io/To-Do-App/)
 
@@ -55,8 +54,6 @@
 
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Cooming soon...
 
 - [ ] **Store the tasks in projects**
 - [ ] **Next pages to save lots of to do**
